@@ -1,0 +1,22 @@
+#!/bin/bash
+# elif statements
+clustername=$1
+desiredno=$2
+
+if [ $clustername == 'QNA' ]
+then
+autoscaling="jde-machine-qna-dev-cluster-AutoScalingGroup-MKLJWGU987QK"
+elif [ $clustername == 'NLO' ]
+then
+autoscaling="jde-machine-nlo-dev-cluster-AutoScalingGroup-1CAJHL5VMKCYD"
+elif [ $clustername == 'NLP' ]
+then
+autoscaling="jde-machine-nlp-dev-cluster-AutoScalingGroup-1OYJFC8VMPYRL"
+elif [ $clustername == 'API' ]
+then
+autoscaling="error"
+else
+autoscaling=$clustername
+fi
+echo $autoscaling
+curl -X POST -F token=18fea9daf0470f63a214b6760de26e -F ref=master --form "variables[autoscaling]=$autoscaling" --form "variables[desiredno]=$desiredno" --insecure https://dev.jde.cloud.verisk.com/api/v4/projects/239/trigger/pipeline

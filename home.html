@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8">
+    <script>
+             function radioChoices(value){
+            if(value == "Stop"){
+               document.getElementById("instances").value = "";  
+                document.getElementById("instances").disabled = true;    
+                     }
+                else{
+                     document.getElementById("instances").disabled = false;  
+                }
+            }
+        </script>
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            width: 100%;
+            background-image: url("Trees.png");
+        }
+        .card{
+            width:30vw;
+            height:auto;
+            margin:10vh 35vw 10vh 35vw;
+            padding:1%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        form{
+            align-items: center;
+        }
+        label,input{
+            display: block;
+            width:15vw;
+            padding: 2%;
+            margin:1%;
+        }
+    
+        select{
+            height:6vh;
+            margin:0px 120px 0px 120px;
+        }
+
+        button{
+            margin:0px 100px 0px 100px;
+            display: flex;
+            justify-content: center;
+            width:100px;
+            height:40px;
+            background-color: cadetblue;
+            border-radius:10%;
+        }
+        .radioInput{
+            margin:0px;
+            width:auto;
+            height:auto;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+<form action="/home" method="POST">
+    <label>Please select a cluster from the list</label>
+    <select name="server" required>
+        <option value="" disabled selected>--Select Cluster--</option>
+        <option value="jde-machine-qna-dev-cluster">QNA</option>
+        <option value="jde-machine-nlo-dev-cluster">NLO</option>
+        <option value="jde-machine-nlp-dev-cluster">NLP</option>
+        <option value="api">jde-machine-api-dev-cluster</option>
+        <option value="jde_cet_tmc_test_cluster">CET</option>
+    </select>
+    <label>Please select the environment</label>
+    <input type="radio" name="dev" value="dev">Development 
+    <input type="radio" name="uat" value="uat">UAT(pre-prod)
+    <input type="radio" name="prod" value="prod">prod
+    <label>Do you want to start or stop the cluster's instances?</label>
+    <input type="radio" name="flag" id="stopRadio" value="Stop" class="radioInput" onclick="radioChoices(value)" selected>Stop
+    <input type="radio" name="flag" id="startRadio" value="Start" class="radioInput" onclick="radioChoices(value)">Start
+    <label>Desired Instances</label>
+    <input type="number" min="1" max="20" name="Instances" id="instances" required disabled>
+    <button type="submit">SUBMIT</button>
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            width: 100%;
+            background-image: url("Trees.png");
+        }
+        .card{
+            width:30vw;
+            height:auto;
+            margin:10vh 35vw 10vh 35vw;
+            padding:1%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        form{
+            align-items: center;
+        }
+        label,input{
+            display: block;
+            width:25vw;
+            padding: 2%;
+            margin:1%;
+        }
+        button{
+            margin:0px 100px 0px 100px;
+            display: flex;
+            justify-content: center;
+            width:100px;
+            height:40px;
+            background-color: cadetblue;
+            border-radius:10%;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+<form action="/auth" method="POST">
+    <label>ID</label>
+    <input type="text" name="ID" placeholder="enter your ID">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="enter your password">
+    <button type="submit">SUBMIT</button>
+</form>
+</div>
+</body>
+</html>
