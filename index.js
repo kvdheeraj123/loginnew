@@ -75,9 +75,9 @@ app.post('/home', function(request, response){
  if(request.body.Instances === undefined){
     request.body.Instances = '0';
  }
-shell.exec('./shellScript.sh '+request.body.server+' '+request.body.Instances, function(error, stdout, stderr){
+shell.exec('./shellScript.sh '+ username + ' '+ request.body.server+' '+request.body.Instances +' '+request.body.env, function(error, stdout, stderr){
 });
-        response.send('<body style="background-image:'+'url("Trees.png")'+'"><h2>Responses are as follows:</h2><br /><br />User: ' + username+',  Choice of Server: '+request.body.server+', Desired Instances: '+request.body.Instances+'</body>');
+        response.send('<body style="background-image:'+'url("Trees.png")'+'"><h2>Responses are as follows:</h2><br /><br />User: ' + username+',  Choice of Server: '+request.body.server+', Desired Instances: '+request.body.Instances+' ,Environment Selected: '+request.body.env+'</body>');
     }
     response.end();
 })
