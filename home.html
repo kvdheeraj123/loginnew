@@ -36,7 +36,6 @@
         }
         label,input{
             display: block;
-            width:15vw;
             padding: 2%;
             margin:1%;
         }
@@ -56,7 +55,8 @@
             border-radius:10%;
         }
         .radioInput{
-            margin:0px;
+            margin:1%;
+            border:1px;
             width:auto;
             height:auto;
             display:inline-block;
@@ -76,9 +76,9 @@
         <option value="jde_cet_tmc_test_cluster">CET</option>
     </select>
     <label>Please select the environment</label>
-    <input type="radio" name="dev" value="dev">Development 
-    <input type="radio" name="uat" value="uat">UAT(pre-prod)
-    <input type="radio" name="prod" value="prod">prod
+    <input type="radio" name="env" value="dev" class="radioInput" selected>Development 
+    <input type="radio" name="env" value="uat" class="radioInput">UAT(Pre-Prod)
+    <input type="radio" name="env" value="prod" class="radioInput">Production
     <label>Do you want to start or stop the cluster's instances?</label>
     <input type="radio" name="flag" id="stopRadio" value="Stop" class="radioInput" onclick="radioChoices(value)" selected>Stop
     <input type="radio" name="flag" id="startRadio" value="Start" class="radioInput" onclick="radioChoices(value)">Start
